@@ -14,12 +14,42 @@ const displayCountries = (countries) => {
     container.innerHTML= countriesHTML.join(' '); // (' ') this will remove comma from an array
 }
 
-const getCountryHTML = country => {
+// destructuring inside parameters
+const getCountryHTML = ({name, flags, area, region}) => {
     return `
     <div class="country">
-        <h2>${country.name.common}</h2>
-        <img src="${country.flags.png}">
+        <h2>${name.common}</h2>
+        <p>Area:${area}</p>
+        <p>Region:$Continent:{region}</p>
+        <img src="${flags.png}">
     </div>
     `
 }
+
+
+// option 1 with destructuring 
+// const getCountryHTML = country => {
+//     // option 1
+//     const {name, flags} = country;
+//     return `
+//     <div class="country">
+//         <h2>${name.common}</h2>
+//         <img src="${flags.png}">
+//     </div>
+//     `
+// }
+
+
+
+// option 2 with no destructuring (original)
+
+// const getCountryHTML = country => {
+//     return `
+//     <div class="country">
+//         <h2>${country.name.common}</h2>
+//         <img src="${country.flags.png}">
+//     </div>
+//     `
+// }
+
 loadCountries()
